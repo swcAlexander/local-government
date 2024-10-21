@@ -1,0 +1,19 @@
+.footer {
+    display: flex;
+    .container {
+        display: flex;
+        gap: 30px;
+    }
+}
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.footer_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}

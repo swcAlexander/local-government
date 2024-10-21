@@ -1,0 +1,14 @@
+#map {
+  height: 70vh;
+  /* або інша відповідна висота */
+  width: 100%;
+}
+
+.context-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+  display: none;
+}

@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import styles from './page.module.scss';
 
-const Header = () =>  {
+const Header: React.FC  = () =>  {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname: string = usePathname();
 

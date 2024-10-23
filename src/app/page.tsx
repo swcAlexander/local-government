@@ -1,120 +1,129 @@
-
-'use client'
-// import styles from "./page.module.css";
-import 'leaflet/dist/leaflet.css';
-import 'leaflet-draw/dist/leaflet.draw.css';
-import 'leaflet-measure/dist/leaflet-measure.css';
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import L, { LatLng, Map} from 'leaflet';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import dynamic from 'next/dynamic';
 
-import 'leaflet-geometryutil';
-import 'leaflet-draw';
-
-export default function MapComponent() {
-  const mapRef = useRef<Map | null>(null);
+const MapComponent = () => {
+  const mapRef = useRef<any>(null);
   const [measuring, setMeasuring] = useState(false);
-  const [measurementPoints, setMeasurementPoints] = useState<LatLng[]>([]);
+  const [measurementPoints, setMeasurementPoints] = useState<any[]>([]);
 
   useEffect(() => {
-    const initializeMap = async () => {
-      if (typeof window !== 'undefined' && mapRef.current === null) {
-        require('leaflet-draw');
-        require('leaflet-geometryutil');
+    const L = require('leaflet');
+    require('leaflet/dist/leaflet.css');
+    require('leaflet-draw/dist/leaflet.draw.css');
+    require('leaflet-measure/dist/leaflet-measure.css');
+    require('leaflet-geometryutil');
+    require('leaflet-draw');
 
-        // Ініціалізуємо карту
-        mapRef.current = L.map('map', {
-          center: [51.1601, 25.789],
-          zoom: 13,
-        });
+    if (!mapRef.current) {
+      mapRef.current = L.map('map', {
+        center: [51.1601, 25.789],
+        zoom: 13,
+      });
 
-        L.Icon.Default.mergeOptions({
-          iconUrl: markerIcon,
-          shadowUrl: markerShadow,
-        });
+      L.Icon.Default.mergeOptions({
+        iconUrl: '/marker-icon-2x.png',
+        shadowUrl: '/marker-shadow.png',
+      });
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 30,
-          detectRetina: true,
-        }).addTo(mapRef.current);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 30,
+        detectRetina: true,
+      }).addTo(mapRef.current);
 
-        L.marker([51.1601, 25.789])
-          .addTo(mapRef.current)
-          .bindPopup('Це Куликовичі');
+      L.marker([51.1601, 25.789])
+        .addTo(mapRef.current)
+        .bindPopup('Це Куликовичі');
 
-        const drawnItems = new L.FeatureGroup();
-        mapRef.current.addLayer(drawnItems);
+      const drawnItems = new L.FeatureGroup();
+      mapRef.current.addLayer(drawnItems);
 
-        const drawControl = new L.Control.Draw({
-          edit: {
-            featureGroup: drawnItems,
+      const drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: drawnItems,
+        },
+        draw: {
+          polygon: {
+            allowIntersection: false,
+            showArea: true,
           },
-          draw: {
-            polygon: {
-              allowIntersection: false,
-              showArea: true,
-            },
-            polyline: {},
-            circle: false,
-            rectangle: {},
-            marker: {},
-          },
-        });
-        mapRef.current.addControl(drawControl);
+          polyline: {},
+          circle: false,
+          rectangle: {},
+          marker: {},
+        },
+      });
+      mapRef.current.addControl(drawControl);
 
-        mapRef.current.on(L.Draw.Event.CREATED, (event: any) => {
-          const layer = event.layer;
-          drawnItems.addLayer(layer);
+      mapRef.current.on(L.Draw.Event.CREATED, (event: any) => {
+        const layer = event.layer;
+        drawnItems.addLayer(layer);
 
-          if (event.layerType === 'marker') {
-            layer
-              .bindPopup('<b>Нова точка!</b><br>Координати: ' + layer.getLatLng())
-              .openPopup();
-          } else if (event.layerType === 'polygon' || event.layerType === 'rectangle') {
-            const area = L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]);
-            layer.bindPopup('<b>Площа:</b> ' + area.toFixed(2) + ' м²').openPopup();
-          } else if (event.layerType === 'polyline') {
-            const length = layer.getLatLngs().reduce(
-              (acc: number, point: LatLng, index: number, arr: LatLng[]) => {
-                if (index === 0) return acc;
-                return acc + point.distanceTo(arr[index - 1]);
-              },
-              0
-            );
-            layer.bindPopup('<b>Довжина:</b> ' + length.toFixed(2) + ' м').openPopup();
-          }
-        });
+        if (event.layerType === 'marker') {
+          layer
+            .bindPopup('<b>Нова точка!</b><br>Координати: ' + layer.getLatLng())
+            .openPopup();
+        } else if (
+          event.layerType === 'polygon' ||
+          event.layerType === 'rectangle'
+        ) {
+          const area = L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]);
+          layer
+            .bindPopup('<b>Площа:</b> ' + area.toFixed(2) + ' м²')
+            .openPopup();
+        } else if (event.layerType === 'polyline') {
+          const length = layer
+            .getLatLngs()
+            .reduce((acc: number, point: any, index: number, arr: any[]) => {
+              if (index === 0) return acc;
+              return acc + point.distanceTo(arr[index - 1]);
+            }, 0);
+          layer
+            .bindPopup('<b>Довжина:</b> ' + length.toFixed(2) + ' м')
+            .openPopup();
+        }
+      });
 
-        mapRef.current.on(L.Draw.Event.EDITED, (event: any) => {
-          event.layers.eachLayer((layer: any) => {
-            layer.bindPopup("<b>Об'єкт змінено!</b>").openPopup();
-          });
+      mapRef.current.on(L.Draw.Event.EDITED, (event: any) => {
+        event.layers.eachLayer((layer: any) => {
+          layer.bindPopup("<b>Об'єкт змінено!</b>").openPopup();
         });
+      });
 
-        mapRef.current.on(L.Draw.Event.DELETED, () => {
-          alert('Об\'єкт видалено!');
-        });
+      mapRef.current.on(L.Draw.Event.DELETED, () => {
+        alert("Об'єкт видалено!");
+      });
 
-        mapRef.current.on('click', (e: any) => {
-          if (measuring) {
-            const latlng = e.latlng;
-            setMeasurementPoints((prevPoints) => [...prevPoints, latlng]);
-            L.marker(latlng).addTo(mapRef.current!).bindPopup('Точка: ' + latlng).openPopup();
-          }
-        });
+      mapRef.current.on('click', (e: any) => {
+        if (measuring) {
+          const latlng = e.latlng;
+          setMeasurementPoints((prevPoints) => [...prevPoints, latlng]);
+          L.marker(latlng)
+            .addTo(mapRef.current)
+            .bindPopup('Точка: ' + latlng)
+            .openPopup();
+        }
+      });
+    }
+
+    // Очищення при демонтажі компонента
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.off(); // Видаляємо всі обробники подій
+        mapRef.current.remove(); // Видаляємо карту
+        mapRef.current = null; // Очищаємо посилання
       }
     };
-
-    initializeMap();
-  }, []); // Викликаємо тільки один раз при монтуванні компонента
+  }, [measuring]);
 
   const toggleMeasurement = () => {
     setMeasuring((prev) => !prev);
     if (!measuring) {
       setMeasurementPoints([]);
-      alert('Клікніть на карту, щоб додати точки. Клацніть знову, щоб завершити вимірювання.');
+      alert(
+        'Клікніть на карту, щоб додати точки. Клацніть знову, щоб завершити вимірювання.'
+      );
     } else {
       const totalDistance = measurementPoints.reduce((acc, point, index) => {
         if (index === 0) return acc;
@@ -128,10 +137,15 @@ export default function MapComponent() {
     <section className="container column">
       <h1 className="hidden">Main page</h1>
       <div id="map" style={{ height: '500px' }}></div>
-      <button id="toggle-measure" onClick={toggleMeasurement}>
+      <button
+        id="toggle-measure"
+        className="hidden"
+        onClick={toggleMeasurement}>
         {measuring ? 'Завершити вимірювання' : 'Почати вимірювання'}
       </button>
       <div id="measure-result" style={{ display: 'none' }}></div>
     </section>
   );
 };
+
+export default dynamic(() => Promise.resolve(MapComponent), { ssr: false });

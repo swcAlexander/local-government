@@ -1,3 +1,9 @@
+/*----------------------------стилі для карти---------------------------*/
+@import "~leaflet/dist/leaflet.css";
+@import "~leaflet-draw/dist/leaflet.draw.css";
+@import "~leaflet-measure/dist/leaflet-measure.css";
+
+/*-----------------------------------------------------------------------*/
 :root {
     --primary-text-color: #757575;
     --title-text-color: #212121;

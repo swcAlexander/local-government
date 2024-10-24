@@ -9,8 +9,8 @@
     --title-text-color: #212121;
     --primary-white-color: #ffffff;
     --secondery-white-color: #f5f4fa;
-    --accent-color: rgba(155, 60, 60, 0.7);
-    --accent-background-color: #2f4465;
+    --accent-color: #2f4465;
+    --accent-border-color:rgba(16, 86, 82, .75);
     --border-color: #eeeeee;
     --secondery-border-color: #ececec;
     --icons-border-color: #afb1b8;
@@ -32,7 +32,6 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    color: var(--accent-background-color);
 }
 
 img {
@@ -48,6 +47,7 @@ body {
     margin: 0;
     padding: 0;
     color: var(--primary-text-color);
+    background-color: var(--primary-white-color);
 
     font-size: 24px;
     font-weight: 400;

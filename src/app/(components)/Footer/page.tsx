@@ -15,7 +15,9 @@ const Footer: React.FC = () => {
                 <p className="footer__text">Луцький район, Волинська область</p>
               </li>
               <li>
-                <a href="mailto:kulikovychi@gmail.com" className="footer__item">
+                <a
+                  href="mailto:kulikovychi@gmail.com"
+                  className={styles.footer__item}>
                   kulikovychi@gmail.com
                 </a>
               </li>

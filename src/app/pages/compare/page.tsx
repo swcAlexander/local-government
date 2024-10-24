@@ -1,10 +1,10 @@
-'use client'
-import { useRef } from "react";
-import { compareData } from "@/api/compare/compareData";
-import { readXlsxFile } from "@/api/compare/readXLSX";
-import { createXlsxFile } from "@/api/compare/createXLSX";
-import { downloadFile } from "@/api/compare/download";
-import styles from './page.module.scss'
+'use client';
+import { useRef } from 'react';
+import { compareData } from '@/api/compare/compareData';
+import { readXlsxFile } from '@/api/compare/readXLSX';
+import { createXlsxFile } from '@/api/compare/createXLSX';
+import { downloadFile } from '@/api/compare/download';
+import styles from './page.module.scss';
 
 const Compare: React.FC = () => {
   // Використовуємо useRef для зберігання посилань на елементи форми
@@ -21,14 +21,14 @@ const Compare: React.FC = () => {
     // Отримуємо файли та інші значення з рефів
     const file1 = file1Ref.current?.files?.[0];
     const file2 = file2Ref.current?.files?.[0];
-    const sheet1 = parseInt(sheet1Ref.current?.value || "1", 10) - 1 || 0;
-    const sheet2 = parseInt(sheet2Ref.current?.value || "1", 10) - 1 || 0;
-    const column1 = parseInt(column1Ref.current?.value || "1", 10) - 1 || 3;
-    const column2 = parseInt(column2Ref.current?.value || "1", 10) - 1 || 3;
+    const sheet1 = parseInt(sheet1Ref.current?.value || '1', 10) - 1 || 0;
+    const sheet2 = parseInt(sheet2Ref.current?.value || '1', 10) - 1 || 0;
+    const column1 = parseInt(column1Ref.current?.value || '1', 10) - 1 || 3;
+    const column2 = parseInt(column2Ref.current?.value || '1', 10) - 1 || 3;
 
     // Перевірка наявності обох файлів
     if (!file1 || !file2) {
-      alert("Будь ласка, виберіть обидва файли.");
+      alert('Будь ласка, виберіть обидва файли.');
       return;
     }
 
@@ -37,9 +37,9 @@ const Compare: React.FC = () => {
       const data2 = await readXlsxFile(file2, sheet2);
       const result = compareData(data1, data2, column1, column2);
       const blob = createXlsxFile(result);
-      downloadFile(blob, "result.xlsx");
+      downloadFile(blob, 'result.xlsx');
     } catch (error) {
-      console.error("Error comparing files:", error);
+      console.error('Error comparing files:', error);
     }
   };
 
@@ -47,7 +47,7 @@ const Compare: React.FC = () => {
     <main className="container">
       <h1 className="hidden">Compare XLSX</h1>
       <form onSubmit={compareForm} className={styles.compareForm}>
-        <label htmlFor="file1">File 1</label>
+        <label htmlFor="file1">Перший файл</label>
         <div className={styles.tooltip}>
           <input
             type="file"
@@ -56,30 +56,45 @@ const Compare: React.FC = () => {
             ref={file1Ref}
             className={styles.file_input}
           />
-          <span className={styles.tooltiptext}>Сюди вставляємо файл з податкової</span>
-        </div>
-
-        <label htmlFor="sheet1">Sheet of first file:</label>
-        <div className={styles.tooltip}>
-          <input type="number" ref={sheet1Ref} className={styles.file_input}/>
           <span className={styles.tooltiptext}>
-            Вибираємо сторінку, або листок у першому файлі. Прописуємо цифрою,
-            наприклад, якщо хочемо вибрати перший листок, пишемо : 1
+            Сюди вставляємо файл з податкової
           </span>
         </div>
 
-        <label htmlFor="column1">Column of first file's sheet:</label>
-        <div className={styles.tooltip}>
-          <input type="number" id="column1" ref={column1Ref} className={styles.file_input} />
-          <span className={styles.tooltiptext}>
-            Вибираємо колонку у файлі з податкової, яку будемо прівнювати.
-            Зазвичай це колонка з кодом. Прописуємо цифрою, наприклад, якщо
-            хочемо вибрати колонку А - вона є першою колонкую на листку - пишемо
-            : 1
-          </span>
+        <div className={styles.tooltip__secondary}>
+          <label htmlFor="sheet1">Сторінка:</label>
+          <div className={styles.tooltip}>
+            <input
+              type="number"
+              ref={sheet1Ref}
+              className={styles.file_input}
+            />
+            <span className={styles.tooltiptext}>
+              Вибираємо сторінку, або листок у першому файлі. Прописуємо цифрою,
+              наприклад, якщо хочемо вибрати перший листок, пишемо : 1
+            </span>
+          </div>
+
+          <label htmlFor="column1">Колонка:</label>
+          <div className={styles.tooltip}>
+            <input
+              type="number"
+              id="column1"
+              ref={column1Ref}
+              className={styles.file_input}
+            />
+            <span className={styles.tooltiptext}>
+              Вибираємо колонку у файлі з податкової, яку будемо прівнювати.
+              Зазвичай це колонка з кодом. Прописуємо цифрою, наприклад, якщо
+              хочемо вибрати колонку А - вона є першою колонкую на листку -
+              пишемо : 1
+            </span>
+          </div>
         </div>
 
-        <label htmlFor="file2" className={styles.custom_upload}>File 2:</label>
+        <label htmlFor="file2" className={styles.custom_upload}>
+          File 2:
+        </label>
         <div className={styles.tooltip}>
           <input
             type="file"
@@ -87,21 +102,23 @@ const Compare: React.FC = () => {
             ref={file2Ref}
             className={styles.file_input}
           />
-          <span className={styles.tooltiptext}>Сюди вставляємо файл з нашою базою даних</span>
+          <span className={styles.tooltiptext}>
+            Сюди вставляємо файл з нашою базою даних
+          </span>
         </div>
 
         <label htmlFor="sheet2">Sheet of second file:</label>
         <div className={styles.tooltip}>
           <input type="number" ref={sheet2Ref} className={styles.file_input} />
           <span className={styles.tooltiptext}>
-            Вибираємо сторінку, або листок у нашій базі даних. Прописуємо цифрою,
-            наприклад, якщо хочемо вибрати перший листок, пишемо : 1
+            Вибираємо сторінку, або листок у нашій базі даних. Прописуємо
+            цифрою, наприклад, якщо хочемо вибрати перший листок, пишемо : 1
           </span>
         </div>
 
         <label htmlFor="column2">Column of second file's sheet:</label>
         <div className={styles.tooltip}>
-          <input type="number" ref={column2Ref}  className={styles.file_input}/>
+          <input type="number" ref={column2Ref} className={styles.file_input} />
           <span className={styles.tooltiptext}>
             Вибираємо колонку у файлі з нашою базою даних. Зазвичай це колонка з
             кодом. Прописуємо цифрою, наприклад, якщо хочемо вибрати колонку А -

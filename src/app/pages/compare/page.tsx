@@ -21,10 +21,10 @@ const Compare: React.FC = () => {
     // Отримуємо файли та інші значення з рефів
     const file1 = file1Ref.current?.files?.[0];
     const file2 = file2Ref.current?.files?.[0];
-    const sheet1 = parseInt(sheet1Ref.current?.value || "1", 10) - 1 || 0;
-    const sheet2 = parseInt(sheet2Ref.current?.value || "1", 10) - 1 || 0;
-    const column1 = parseInt(column1Ref.current?.value || "1", 10) - 1 || 3;
-    const column2 = parseInt(column2Ref.current?.value || "1", 10) - 1 || 3;
+    const sheet1 = parseInt(sheet1Ref.current?.value || "0", 10);
+    const sheet2 = parseInt(sheet2Ref.current?.value || "0", 10);
+    const column1 = parseInt(column1Ref.current?.value || "3", 10);
+    const column2 = parseInt(column2Ref.current?.value || "3", 10);
 
     // Перевірка наявності обох файлів
     if (!file1 || !file2) {

@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import styles from './page.module.scss';
 
-const Header: React.FC  = () =>  {
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname: string = usePathname();
 
@@ -53,7 +53,7 @@ const Header: React.FC  = () =>  {
                 PDF Tools
               </a>
             </li>
-                        <li className={styles.nav_item}>
+            <li className={styles.nav_item}>
               <a
                 href="/pages/about"
                 className={`${styles.nav__link} ${
@@ -70,10 +70,7 @@ const Header: React.FC  = () =>  {
               href="mailto:kulikovychi@gmail.com"
               className={`${styles.contacts__link}`}>
               <svg className={styles.contacts__mail}>
-                <use
-                  href="/icons.svg#icon-mail"
-                  width="16"
-                  height="12"></use>
+                <use href="/icons.svg#icon-mail" width="16" height="12"></use>
               </svg>
               <span>kulikovychi@gmail.com</span>
             </a>
@@ -143,16 +140,9 @@ const Header: React.FC  = () =>  {
         <ul className={`${styles.mobile_menu} ${styles.down} ${styles.list}`}>
           <li className={styles.mobile_menu__item}>
             <a
-              href="tel:+380676841366"
-              className={`${styles.mobile_menu__link} ${styles.list}`}>
-              <span>+38 0676841366</span>
-            </a>
-          </li>
-          <li className={styles.mobile_menu__item}>
-            <a
               href="mailto:natalia_klymuk@gmail.com"
               className={`${styles.mobile_menu__link} ${styles.list}`}>
-              <span>natalia_klymuk@gmail.com</span>
+              <span>kulikovychi@gmail.com</span>
             </a>
           </li>
         </ul>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Порівняння EXEL файлів',
-  description: 'застосунок для порівняння EXEL файлів Куликовичі',
+  description: 'Застосунок для порівняння EXEL файлів Куликовичі',
 };
 
 export default function CompareLayout({

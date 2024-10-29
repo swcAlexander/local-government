@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
-
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Local Government",
-  description: "Tools and scripts for work in local government",
+  title: 'Порівняння EXEL файлів',
+  description: 'застосунок для порівняння EXEL файлів Куликовичі',
 };
 
 export default function CompareLayout({
@@ -11,9 +10,5 @@ export default function CompareLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-      <>
-          {children}
-      </>
-  );
+  return <>{children}</>;
 }

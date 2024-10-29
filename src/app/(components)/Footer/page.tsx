@@ -1,3 +1,6 @@
+import Facebook from '@/app/(components)/SocialLinks/Facebook';
+import Github from '../SocialLinks/Github';
+import Linkedin from '../SocialLinks/Linkedin';
 import styles from './page.module.scss';
 
 const Footer: React.FC = () => {
@@ -28,49 +31,10 @@ const Footer: React.FC = () => {
           </address>
         </div>
         <div className={styles.social_container}>
-          <h3 className="social-container__title">Приєднуйтесь</h3>
-          <ul className={styles.social_links}>
-            <li className={styles.social_links__item}>
-              <a href="/" className={styles.social_links__link}>
-                <svg className={styles.social_links__icon}>
-                  <use
-                    href="/icons.svg#icon-instagram"
-                    width="20px"
-                    height="20px"></use>
-                </svg>
-              </a>
-            </li>
-            <li className={styles.social_links__item}>
-              <a href="/" className={styles.social_links__link}>
-                <svg className={styles.social_links__icon}>
-                  <use
-                    href="/icons.svg#icon-twitter"
-                    width="20px"
-                    height="20px"></use>
-                </svg>
-              </a>
-            </li>
-            <li className={styles.social_links__item}>
-              <a href="/" className={styles.social_links__link}>
-                <svg className={styles.social_links__icon}>
-                  <use
-                    href="/icons.svg#icon-facebook"
-                    width="20px"
-                    height="20px"></use>
-                </svg>
-              </a>
-            </li>
-            <li className={styles.social_links__item}>
-              <a href="/" className={styles.social_links__link}>
-                <svg className={styles.social_links__icon}>
-                  <use
-                    href="/icons.svg#icon-linkedin"
-                    width="20px"
-                    height="20px"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
+          <h3 className="hidden">Приєднуйтесь</h3>
+          <Linkedin/>
+          <Facebook/>
+          <Github/>
         </div>
       </div>
     </footer>

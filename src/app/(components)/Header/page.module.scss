@@ -68,15 +68,6 @@
     gap: 50px;
 }
 
-.nav__link {
-    position: relative;
-    color: var(--title-text-color);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.02em;
-}
-
 .logo__second {
     color: #000000;
 }
@@ -85,7 +76,7 @@
     position: relative;
     color: var(--title-text-color);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.8em;
     line-height: 1.14;
     letter-spacing: 0.02em;
 
@@ -111,53 +102,6 @@
     }
 }
 
-.contacts {
-    display: none;
-    margin-left: auto;
-    gap: 10px;
-
-    @media screen and (min-width: 1200px) {
-        display: flex;
-        align-items: center;
-        margin-left: auto;
-        gap: 30px;
-        margin-left: auto;
-    }
-}
-
-.contacts__link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.1666;
-    letter-spacing: 0.02em;
-    color: var(--primary-text-color);
-
-    &:hover,
-    &:focus {
-        color: var(--accent-color);
-    }
-
-    @media screen and (min-width: 1200px) {
-
-        font-size: 14px;
-        line-height: 1.1428;
-    }
-}
-
-.contacts__mail {
-    width: 16px;
-    height: 12px;
-    fill: currentColor;
-}
-
-.contacts__smartphone {
-    width: 10px;
-    height: 16px;
-    fill: currentColor;
-}
 
 .nav__list,
 .contacts,

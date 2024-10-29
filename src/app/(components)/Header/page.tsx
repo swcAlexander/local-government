@@ -64,18 +64,6 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </nav>
-        <ul className={`${styles.contacts} ${styles.list}`}>
-          <li className={styles.contacts_item}>
-            <a
-              href="mailto:kulikovychi@gmail.com"
-              className={`${styles.contacts__link}`}>
-              <svg className={styles.contacts__mail}>
-                <use href="/icons.svg#icon-mail" width="16" height="12"></use>
-              </svg>
-              <span>kulikovychi@gmail.com</span>
-            </a>
-          </li>
-        </ul>
         <button
           className={styles.menu_toggle}
           aria-expanded={isMenuOpen}

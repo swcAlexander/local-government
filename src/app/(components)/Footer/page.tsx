@@ -17,8 +17,11 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="mailto:kulikovychi@gmail.com"
-                  className={styles.footer__item}>
-                  kulikovychi@gmail.com
+                  className={styles.contacts__link}>
+                  <svg className={styles.contacts__mail}>
+                    <use href="/icons.svg#icon-mail" width="16" height="12"></use>
+                  </svg>
+                  <span>kulikovychi@gmail.com</span>
                 </a>
               </li>
             </ul>

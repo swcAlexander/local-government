@@ -1,14 +1,33 @@
-import Footer from "@/app/(components)/Footer/page";
-import Header from "@/app/(components)/Header/page";
+'use client'
+import { useState } from 'react';
+import generateRandomNumber from '@/api/random/random';
+import styles from './styles.module.scss'
+import Form from '@/app/(components)/Forms/Form';
 
 const Tools = () => {
+    const toolList = ["Об'єднання PDF", "Роз'єднання PDF", "Зменшення PDF", "Конвертація PDF в JPEG", "Конвертація JPEG в PDF", "Порівняння EXEL"]
+    const [selectetTool, setSelectedTool] = useState<string>('')
+    const handleToolClick = (tool: string) => {
+        setSelectedTool(tool)
+
+    }
+    
     return (
         <>
-            {/* <Header /> */}
-             <main>
-                <h1>PDF Tools</h1>
+             <main className='container column'>
+                <h1 className="hidden">PDF Tools</h1>
+                <nav className={styles.nav}>
+                    <ul className={styles.nav_list}>
+                        {toolList.map(listEl => 
+                            <li key={generateRandomNumber(listEl.length)}><button type='button' onClick={() =>handleToolClick(listEl)} className={styles.list_button}>{listEl}</button></li>
+                        )}
+                    </ul>
+                </nav>
+
+                {selectetTool && <Form tools={selectetTool} />}
+
+
             </main>
-            {/* <Footer/> */}
         </>
 
     )

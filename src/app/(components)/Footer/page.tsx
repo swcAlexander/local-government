@@ -2,6 +2,7 @@ import Facebook from '@/app/(components)/SocialLinks/Facebook';
 import Github from '../SocialLinks/Github';
 import Linkedin from '../SocialLinks/Linkedin';
 import styles from './page.module.scss';
+import Instagram from '../SocialLinks/Instagram';
 
 const Footer: React.FC = () => {
   return (
@@ -22,7 +23,10 @@ const Footer: React.FC = () => {
                   href="mailto:kulikovychi@gmail.com"
                   className={styles.contacts__link}>
                   <svg className={styles.contacts__mail}>
-                    <use href="/icons.svg#icon-mail" width="16" height="12"></use>
+                    <use
+                      href="/icons.svg#icon-mail"
+                      width="16"
+                      height="12"></use>
                   </svg>
                   <span>kulikovychi@gmail.com</span>
                 </a>
@@ -32,9 +36,20 @@ const Footer: React.FC = () => {
         </div>
         <div className={styles.social_container}>
           <h3 className="hidden">Приєднуйтесь</h3>
-          <Linkedin/>
-          <Facebook/>
-          <Github/>
+          <ul className={styles.social_container}>
+            <li>
+              <Instagram />
+            </li>
+            <li>
+              <Linkedin />
+            </li>
+            <li>
+              <Facebook />
+            </li>
+            <li>
+              <Github />
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

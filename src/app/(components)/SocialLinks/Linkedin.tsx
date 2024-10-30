@@ -15,7 +15,7 @@ const Linkedin: React.FC = () => {
                 </div>
             </div>
             <div className={styles.text}>
-                <a className={styles.icon} href="https://freecodez.com/">
+                <a className={styles.icon} href="https://www.linkedin.com/in/olexander-klymuk-16832827b/">
                 <div className={styles.layer}>
                     <span></span>
                     <span></span>

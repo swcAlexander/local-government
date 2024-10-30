@@ -12,9 +12,16 @@
     --accent-color: #2f4465;
     --accent-border-color:rgba(16, 86, 82, .75);
     --border-color: #eeeeee;
-    --secondery-border-color: #ececec;
-    --icons-border-color: #afb1b8;
+    --bg-color: #f5deb3;
+    --primary-color: #8b5e3c;
+    --text-color: #333;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 h1,
 h2,
@@ -40,14 +47,17 @@ img {
     height: auto;
 }
 
+
 body {
+
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
-    color: var(--primary-text-color);
-    background-color: var(--primary-white-color);
 
     font-size: 24px;
     font-weight: 400;

@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname: string = usePathname();
 
-  const isActive = (href: string) => pathname === href;
+  // const isActive = (href: string) => pathname === href;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,7 +16,19 @@ const Header: React.FC = () => {
 
   return (
     <header className={styles.site_header}>
-      <div className="container">
+      
+      <div className={styles.logo}>
+        <button  className={`${styles.hamburger} ${styles.hamburger_vortex} ${isMenuOpen ? styles.is_active: ''}`} type="button" onClick={toggleMenu}>
+        <span className={styles.hamburger_box}>
+          <span className={styles.hamburger_inner}></span>
+        </span>
+      </button>
+        <img src="/logo.svg" alt="Local Government Logo" width={80} />
+        <span className={styles.header_text}>Local Government</span>
+        <p className={styles.contacts}>Email: info@localgov.com</p>
+      </div>
+
+      {/* <div className="container">
         <nav className={`${styles.flex} ${styles.nav}`}>
           <a
             href="/"
@@ -81,8 +93,8 @@ const Header: React.FC = () => {
               clipRule="evenodd"></path>
           </svg>
         </button>
-      </div>
-      <div
+      </div> */}
+      {/* <div
         id="mobile_menu"
         className={`${styles.menu_container} ${
           isMenuOpen ? styles.is_open : ''
@@ -134,7 +146,7 @@ const Header: React.FC = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </header>
   );
 };

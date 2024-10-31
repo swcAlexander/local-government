@@ -136,7 +136,7 @@ const MapComponent = () => {
   return (
     <section className="container column">
       <h1 className="hidden">OpenStreetMap</h1>
-      <div id="map" style={{ height: '500px' }}></div>
+      <div id="map" style={{ height: '500px', zIndex: 1 }}></div>
       <button
         id="toggle-measure"
         className="hidden"

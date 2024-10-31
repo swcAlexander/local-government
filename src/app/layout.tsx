@@ -28,14 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <ThemeProvider>
+    <ThemeProvider>
+      <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
           <Header />
           {children}
           <Footer />
         </body>
-      </ThemeProvider>
-    </html>
+      </html>
+    </ThemeProvider>
   );
 }

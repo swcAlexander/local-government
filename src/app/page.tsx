@@ -38,9 +38,9 @@ export default function MainPage() {
       <div className={styles.main_container}>
         <div className={styles.titlebox}>
           <h1 className={styles.animated_text} ref={textElement}>
-          Вітаємо вас на сайті для старост!
+            Вітаємо вас на сайті для старост!
           </h1>
-          <Tooltip message='Щоб відкрити головне меню, натисніть позначку у лівому верхньому куті'/>
+          <Tooltip message="Щоб відкрити головне меню, натисніть позначку у лівому верхньому куті" />
         </div>
         <section id="map" className={styles.feature_section}>
           <h2>Map Tools for Land Management</h2>

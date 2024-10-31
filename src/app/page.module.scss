@@ -1,20 +1,37 @@
-// Variables
-$bg-color: #f5deb3;
-$sec-bg-color: #f7c567;
-$primary-color: #8b5e3c; // Warm brown
-$text-color: #333;
-
 .main {
   background-image: url('/depositphotos.jpg');
-  background-size: cover; /* або contain */
-  background-position: center; /* щоб центрувати зображення */
-  height: 100vh; /* висота секції */
+  background-size: cover; 
+  background-position: center; 
+  height: 67vh; 
+}
+.hint {
+  position: absolute;
+  top: -10%;
+  right: -20%;
+  overflow: hidden;
+  padding: 10px;
+  width: 100px;
 }
 
 .main_container {
+  
   margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
+  .titlebox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    :hover {
+      .hint {
+          overflow: visible;
+        }
+
+    }
+
+  }
+  
 
   @media screen and (min-width: 320px) {
     max-width: 300px;
@@ -42,11 +59,12 @@ $text-color: #333;
   padding: 50px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  justify-content: center;
   text-align: center;
 
   h2 {
     font-size: 2rem;
-    color: $primary-color;
+    color: var(--title-color)
   }
 
   p {
@@ -58,13 +76,22 @@ $text-color: #333;
 
 .animated_text {
   display: inline-block;
-  font-size: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
   font-weight: bold;
-  color: #333;
+  color: var(--title-color);
   visibility: hidden;
   overflow: hidden;
+    @media screen and (min-width: 480px) {
+        font-size: 1.5rem;
+    
+      }
 
-  //   white-space: nowrap;
+  @media screen and (min-width: 768px) {
+    font-size: 2.5rem;
+    
+  }
 }
 
 .animated_text span {
@@ -79,3 +106,8 @@ $text-color: #333;
   opacity: 1;
   transform: translateY(0);
 }
+.titlebox {
+  position: relative;
+
+}
+

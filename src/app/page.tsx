@@ -1,6 +1,7 @@
 'use client';
 import { useRef, useEffect } from 'react';
 import styles from '@/app/page.module.scss';
+import Tooltip from './(components)/Tooltip/Tooltip';
 
 export default function MainPage() {
   const textElement = useRef<HTMLHeadingElement>(null);
@@ -35,9 +36,12 @@ export default function MainPage() {
   return (
     <main className={styles.main}>
       <div className={styles.main_container}>
-        <h1 className={styles.animated_text} ref={textElement}>
+        <div className={styles.titlebox}>
+          <h1 className={styles.animated_text} ref={textElement}>
           Вітаємо вас на сайті для старост!
-        </h1>
+          </h1>
+          <Tooltip message='Щоб відкрити головне меню, натисніть позначку у лівому верхньому куті'/>
+        </div>
         <section id="map" className={styles.feature_section}>
           <h2>Map Tools for Land Management</h2>
           <p>

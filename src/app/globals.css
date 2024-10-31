@@ -5,20 +5,22 @@
 
 /*-----------------------------------------------------------------------*/
 :root {
-  --primary-text-color: #757575;
-  --title-text-color: #212121;
-  --primary-white-color: #ffffff;
-  --secondery-white-color: #f5f4fa;
+  --bg-color: #F4F7FA;
+  --secondary-bg-color: #D9E2EC;
+  --text-color: #1F2933;
+  --sec-text-color:#136cc5;
+  --title-color: #2F4465;
   --accent-color: #2f4465;
   --accent-border-color: rgba(16, 86, 82, 0.75);
-  --border-color: #eeeeee;
-  --bg-color: #f5deb3;
-  --primary-color: #8b5e3c;
-  --text-color: #333;
 }
 [data-theme='dark'] {
-  --bg-color: #000000;
-  --text-color: #ffffff;
+  --bg-color: #1B1F24;
+  --secondary-bg-color: #2F3A47;
+  --text-color: #D9E2EC;
+  --sec-text-color: #6d9145;
+  --title-color: #2F4465;
+  --accent-color: #416794;
+  --accent-border-color: rgba(16, 86, 82, 0.75);
 }
 * {
   margin: 0;

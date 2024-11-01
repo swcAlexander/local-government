@@ -42,7 +42,7 @@ export default function MainPage() {
           </h1>
           <Tooltip message="Щоб відкрити головне меню, натисніть позначку у лівому верхньому куті" />
         </div>
-        <section id="map" className={styles.feature_section}>
+        <section className={styles.feature_section}>
           <h2>Map Tools for Land Management</h2>
           <p>
             OpenStreetMap integration with real-time updates and editing
@@ -50,7 +50,7 @@ export default function MainPage() {
           </p>
         </section>
 
-        <section id="excel-tools" className={styles.feature_section}>
+        <section className={styles.feature_section}>
           <h2>Excel & PDF Tools</h2>
           <p>
             Tools for editing and managing Excel and PDF files directly within
@@ -58,7 +58,7 @@ export default function MainPage() {
           </p>
         </section>
 
-        <section id="book" className={styles.feature_section}>
+        <section className={styles.feature_section}>
           <h2>Electronic Household Book</h2>
           <p>
             Digitize and maintain household records with a user-friendly

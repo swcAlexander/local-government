@@ -1,20 +1,12 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { useTheme } from '../TheamContext/TheamContext';
+import { useState } from 'react';
+import useTheme from '@/api/hooks/use-theme';
 import styles from './page.module.scss';
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { toggleTheme } = useTheme();
-  const [selectedTheme, setSelectedTheme] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
-    if (savedTheme) {
-      setSelectedTheme(savedTheme);
-      toggleTheme(savedTheme);
-    }
-  }, [toggleTheme]);
+  const { theme, setTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -22,11 +14,9 @@ const Header: React.FC = () => {
 
   const handleThemeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newTheme = event.target.value as 'light' | 'dark';
-    setSelectedTheme(newTheme);
-    toggleTheme(newTheme);
+    setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
   };
-
   return (
     <header className={styles.site_header}>
       <div className={styles.logo}>
@@ -241,7 +231,6 @@ const Header: React.FC = () => {
                 id="dark"
                 name="theme"
                 value="dark"
-                checked={selectedTheme === 'dark'}
                 onChange={handleThemeChange}
               />
               <input
@@ -250,7 +239,6 @@ const Header: React.FC = () => {
                 id="light"
                 name="theme"
                 value="light"
-                checked={selectedTheme === 'light'}
                 onChange={handleThemeChange}
               />
             </div>

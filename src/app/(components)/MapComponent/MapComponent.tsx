@@ -23,7 +23,7 @@ const MapComponent = () => {
       });
 
       L.Icon.Default.mergeOptions({
-        iconUrl: '/marker-icon-2x.png',
+        iconUrl: '/marker-icon.png',
         shadowUrl: '/marker-shadow.png',
       });
 

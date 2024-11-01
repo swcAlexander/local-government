@@ -27,7 +27,7 @@
   font-size: 0.8em;
   line-height: 1.1666;
   letter-spacing: 0.02em;
-  color: var(--primary-text-color);
+  color: var(--text-color);
 
   &:hover,
   &:focus {
@@ -64,36 +64,6 @@
   @media screen and (min-width: 1200px) {
     margin-left: auto;
   }
-}
-.social_links {
-  display: flex;
-  gap: 30px;
-}
-.social_links__item {
-  display: flex;
-  justify-content: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: #fff;
-  transition: background-color 0.3 ease;
-}
-
-.social_links__icon {
-  width: 20px;
-  height: 20px;
-  fill: var(--accent-color);
-}
-.social_links__item:hover {
-  background-color: var(--accent-color);
-  .social_links__icon {
-    fill: var(--primary-white-color);
-  }
-}
-.social_links__link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .container {

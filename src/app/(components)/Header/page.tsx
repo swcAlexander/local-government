@@ -3,7 +3,6 @@ import { useState } from 'react';
 import useTheme from '@/api/hooks/use-theme';
 import styles from './page.module.scss';
 
-
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -232,6 +231,7 @@ const Header: React.FC = () => {
                 name="theme"
                 value="dark"
                 onChange={handleThemeChange}
+                checked={theme === 'dark'}
               />
               <input
                 label="Light"
@@ -240,6 +240,7 @@ const Header: React.FC = () => {
                 name="theme"
                 value="light"
                 onChange={handleThemeChange}
+                checked={theme === 'light'}
               />
             </div>
           </li>

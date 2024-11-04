@@ -1,30 +1,24 @@
-import { useState, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 type ThemeContextType = {
-  theme: string | undefined;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
+    theme: string;
+    setTheme: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const useTheme = (): ThemeContextType | undefined => {
-  if (typeof window !== 'undefined') {
-    const isDarkTheme = window?.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches;
-    const defaultTheme = isDarkTheme ? 'dark' : 'light';
+const useTheme = (): ThemeContextType => {
+    const [theme, setTheme] = useState<string>(() => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem('theme') || 'light';
+        }
+        return 'light';
+    });
 
-    const [theme, setTheme] = useState<string>(
-      localStorage.getItem('theme') || defaultTheme
-    );
-
-    useLayoutEffect(() => {
-      if (theme) {
+    useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-      }
     }, [theme]);
 
     return { theme, setTheme };
-  }
-  return undefined;
 };
+
 export default useTheme;

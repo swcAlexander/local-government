@@ -20,7 +20,7 @@ const Tools = () => {
 
   return (
     <>
-      <main className="container column">
+      <main className={`container ${styles.container}`}>
         <h1 className="hidden">PDF Tools</h1>
         <nav className={styles.nav}>
           <ul className={styles.nav_list}>

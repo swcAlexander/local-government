@@ -3,7 +3,6 @@ import { useState } from 'react';
 import useTheme from '@/api/hooks/use-theme';
 import styles from './page.module.scss';
 
-
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();

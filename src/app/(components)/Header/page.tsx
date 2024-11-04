@@ -232,6 +232,7 @@ const Header: React.FC = () => {
                 name="theme"
                 value="dark"
                 onChange={handleThemeChange}
+                checked={theme === 'dark'}
               />
               <input
                 label="Light"
@@ -240,6 +241,7 @@ const Header: React.FC = () => {
                 name="theme"
                 value="light"
                 onChange={handleThemeChange}
+                checked={theme === 'light'}
               />
             </div>
           </li>

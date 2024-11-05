@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import styles from '@/app/page.module.scss';
 import Tooltip from './(components)/Tooltip/Tooltip';
+import Head from 'next/head';
 
 export default function MainPage() {
   const textElement = useRef<HTMLHeadingElement>(null);
@@ -34,7 +35,8 @@ export default function MainPage() {
   }, []);
 
   return (
-    <main className={styles.main}>
+
+      <main className={styles.main}>
       <div className={styles.main_container}>
         <div className={styles.titlebox}>
           <h1 className={styles.animated_text} ref={textElement}>
@@ -42,7 +44,7 @@ export default function MainPage() {
           </h1>
           <Tooltip message="Щоб відкрити головне меню, натисніть позначку у лівому верхньому куті" />
         </div>
-        <section className={styles.feature_section}>
+        {/* <section className={styles.feature_section}>
           <h2>Map Tools for Land Management</h2>
           <p>
             OpenStreetMap integration with real-time updates and editing
@@ -64,8 +66,8 @@ export default function MainPage() {
             Digitize and maintain household records with a user-friendly
             electronic system.
           </p>
-        </section>
+        </section> */}
       </div>
-    </main>
+      </main>
   );
 }

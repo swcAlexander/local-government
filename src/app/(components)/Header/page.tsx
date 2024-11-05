@@ -224,8 +224,8 @@ const Header: React.FC = () => {
           </li>
           <li>
             <div className={styles.radio}>
+              <label htmlFor="dark" className={styles.radiolabelDark}>Dark</label>
               <input
-                label="Dark"
                 type="radio"
                 id="dark"
                 name="theme"
@@ -233,8 +233,8 @@ const Header: React.FC = () => {
                 onChange={handleThemeChange}
                 checked={theme === 'dark'}
               />
+              <label htmlFor="light" className={styles.radiolabelLight}>Light</label>
               <input
-                label="Light"
                 type="radio"
                 id="light"
                 name="theme"

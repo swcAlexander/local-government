@@ -278,17 +278,46 @@ $text-color: #333;
 }
 /*--------------------------------radio-----------------------------------*/
 .radio {
+  position: relative;
   background: #454857;
   padding: 4px;
   border-radius: 3px;
   box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
     0 0 0 3px rgba(185, 185, 185, 0.3);
-  width: fit-content;
+  width: 5em;
   position: relative;
 }
 
+.radiolabelDark {
+  position: absolute;
+  top: 25%;
+  left: 5px;
+  width: fit-content;
+  cursor: pointer;
+  height: fit-content;
+      font-size: 0.8em;
+        font-weight: 700;
+  z-index: 1;
+
+
+
+}
+.radiolabelLight {
+    position: absolute;
+    top: 25%;
+    right: 5px;
+    width: fit-content;
+    cursor: pointer;
+    height: fit-content;
+        font-size: 0.8em;
+          font-weight: 700;
+
+    z-index: 1;
+
+}
+
 .radio input {
-  width: auto;
+  width: 4em;
   height: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -313,6 +342,7 @@ $text-color: #333;
   text-shadow: 0 1px 0px #79485f7a;
   -webkit-animation: rubberBand 1s both;
   animation: rubberBand 1s both;
+
 }
 
 .radio input:before {

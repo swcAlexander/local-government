@@ -29,8 +29,12 @@ export default function RootLayout({
   
   return (
     <html lang="en">
-      
-
+        <link
+          rel="preload"
+          href="/depositphotos.jpg"
+          as="image"
+          type="image/jpeg"
+        />
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
           <Header />
           {children}

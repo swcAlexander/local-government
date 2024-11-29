@@ -2,7 +2,7 @@ import styles from '@/app/(components)/SocialLinks/instagram.module.scss';
 const Instagram: React.FC = () => {
   return (
     <div className={styles.tooltip_container}>
-      <div className={styles.tooltip}>
+      {/* <div className={styles.tooltip}>
         <div className={styles.profile}>
           <div className={styles.user}>
             <div className={styles.img}>I</div>
@@ -13,7 +13,7 @@ const Instagram: React.FC = () => {
           </div>
           <div className={styles.about}>800+ Followers</div>
         </div>
-      </div>
+      </div> */}
       <div className={styles.text}>
         <a className={styles.icon} href="#">
           <div className={styles.layer}>

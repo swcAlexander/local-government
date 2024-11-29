@@ -2,7 +2,7 @@ import styles from '@/app/(components)/SocialLinks/github.module.scss';
 const Github: React.FC = () => {
   return (
     <div className={styles.tooltip_container}>
-      <div className={styles.tooltip}>
+      {/* <div className={styles.tooltip}>
         <div className={styles.profile}>
           <div className={styles.user}>
             <div className={styles.img}>G</div>
@@ -13,7 +13,7 @@ const Github: React.FC = () => {
           </div>
           <div className={styles.about}>500+ Connections</div>
         </div>
-      </div>
+      </div> */}
       <div className={styles.text}>
         <a className={styles.icon} href="https://github.com/swcAlexander">
           <div className={styles.layer}>

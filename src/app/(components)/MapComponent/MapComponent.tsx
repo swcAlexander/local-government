@@ -22,15 +22,38 @@ const MapComponent = () => {
         zoom: 13,
       });
 
+  // Основні шари (різні стилі тла)
+  const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 30,
+    detectRetina: true,
+    attribution: '© OpenStreetMap'
+  }).addTo(mapRef.current);
+
+  const topoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 30,
+    detectRetina: true,
+    attribution: '© OpenTopoMap'
+  });
+
+  const satelliteMap = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 30,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '© Google'
+  });
+
+  // Додавання меню для вибору шару
+  const baseMaps = {
+    "OpenStreetMap": openStreetMap,
+    "Топографічна карта": topoMap,
+    "Супутникова карта": satelliteMap
+  };
+
+  L.control.layers(baseMaps).addTo(mapRef.current);
+
       L.Icon.Default.mergeOptions({
         iconUrl: '/marker-icon.png',
         shadowUrl: '/marker-shadow.png',
       });
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 30,
-        detectRetina: true,
-      }).addTo(mapRef.current);
 
       L.marker([51.1601, 25.789])
         .addTo(mapRef.current)

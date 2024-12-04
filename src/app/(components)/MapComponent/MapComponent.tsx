@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import styles from './page.module.scss'
 
 const MapComponent = () => {
   const mapRef = useRef<any>(null);
@@ -159,7 +160,7 @@ const MapComponent = () => {
   return (
     <section className="container column">
       <h1 className="hidden">OpenStreetMap</h1>
-      <div id="map" style={{ height: '500px', zIndex: 1 }}></div>
+      <div id="map" className={styles.map} style={{zIndex: 1 }}></div>
       <button
         id="toggle-measure"
         className="hidden"

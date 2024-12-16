@@ -1,11 +1,12 @@
 'use client'
 import { useRef } from "react"
+import styles from './comparison.module.scss'
 
 export default function ConvertingJPEG() {
     return (
-        <div className="tools-section__container">
+        <form className={styles.compareForm}>
           <h2>Конвертація JPEG в PDF</h2>
-          <div className="in-container">
+          <div className={styles.tooltip}>
             <div className="in-folder">
               <div className="front-side">
                 <div className="tip"></div>
@@ -23,10 +24,10 @@ export default function ConvertingJPEG() {
             </label>
           </div>
 
-          <button id="convertJPEGToPDF" className="tools-section__button">
+          <button type="submit" id="convertJPEGToPDF" className="tools-section__button">
             Конвертувати в PDF
           </button>
-        </div>
+        </form>
     )
     
 }

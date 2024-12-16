@@ -1,11 +1,12 @@
 'use client'
 import { useRef } from "react"
+import styles from './comparison.module.scss'
 
 export default function Splitting() {
     return (
-        <div className="tools-section__container">
+        <form className={styles.compareForm}>
           <h2>Роз'єднання PDF</h2>
-          <div className="in-container">
+          <div className={styles.tooltip}>
             <div className="in-folder">
               <div className="front-side">
                 <div className="tip"></div>
@@ -23,10 +24,10 @@ export default function Splitting() {
             </label>
           </div>
 
-          <button id="compressSplit" className="tools-section__button">
+          <button type="submit" id="compressSplit" className="tools-section__button">
             Роз'єднати
           </button>
-        </div>
+        </form>
     )
     
 }

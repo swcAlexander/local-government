@@ -1,11 +1,12 @@
 'use client'
 import { useRef } from "react"
+import styles from './comparison.module.scss'
 
 export default function Reduction() {
     return (
-        <div className="tools-section__container">
+        <form className={styles.compareForm}>
             <h2>Зменшення PDF</h2>
-            <div className="in-container">
+            <div className={styles.tooltip}>
                 <div className="in-folder">
                 <div className="front-side">
                     <div className="tip"></div>
@@ -22,10 +23,10 @@ export default function Reduction() {
                 Choose a file
                 </label>
             </div>
-            <button id="compressButton" className="tools-section__button">
+            <button type="submit" id="compressButton" className="tools-section__button">
                 Зменшити розмір
             </button>
-        </div>
+        </form>
     )
     
 }

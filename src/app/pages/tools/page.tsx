@@ -20,7 +20,7 @@ const Tools = () => {
 
   return (
     <>
-      <main className={`container ${styles.container}`}>
+      <main className={styles.container}>
         <h1 className="hidden">PDF Tools</h1>
         <nav className={styles.nav}>
           <ul className={styles.nav_list}>
@@ -30,7 +30,7 @@ const Tools = () => {
                   type="button"
                   onClick={() => handleToolClick(listEl)}
                   className={styles.list_button}>
-                  {listEl}
+                  <span>{listEl}</span>
                 </button>
               </li>
             ))}

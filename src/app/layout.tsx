@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
         <link
           rel="preload"
-          href="/depositphotos.jpg"
+          href="/depositphotos.png"
           as="image"
           type="image/jpeg"
         />

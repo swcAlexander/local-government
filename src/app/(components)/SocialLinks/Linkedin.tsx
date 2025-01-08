@@ -2,7 +2,7 @@ import styles from '@/app/(components)/SocialLinks/linkedin.module.scss'
 const Linkedin: React.FC = () => {
     return (
         <div className={styles.tooltip_container}>
-            <div className={styles.tooltip}>
+            {/* <div className={styles.tooltip}>
                 <div className={styles.profile}>
                     <div className={styles.user}>
                         <div className={styles.img}>Li</div>
@@ -13,7 +13,7 @@ const Linkedin: React.FC = () => {
                     </div>
                     <div className={styles.about}>500+ Connections</div>
                 </div>
-            </div>
+            </div> */}
             <div className={styles.text}>
                 <a className={styles.icon} href="https://www.linkedin.com/in/olexander-klymuk-16832827b/">
                 <div className={styles.layer}>

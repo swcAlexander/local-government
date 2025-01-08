@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Погосопдарська книга',
-  description: 'Когосподарська книга Куликовичі',
+  description: 'Погосподарська книга Куликовичі',
 };
 
 export default function HouseholdLayout({

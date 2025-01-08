@@ -2,7 +2,7 @@ import styles from '@/app/(components)/SocialLinks/facebook.module.scss'
 const Facebook: React.FC = () => {
     return (
         <div className={styles.tooltip_container}>
-            <div className={styles.tooltip}>
+            {/* <div className={styles.tooltip}>
                 <div className={styles.profile}>
                     <div className={styles.user}>
                         <div className={styles.img}>F</div>
@@ -13,7 +13,7 @@ const Facebook: React.FC = () => {
                     </div>
                     <div className={styles.about}>500+ Connections</div>
                 </div>
-            </div>
+            </div> */}
             <div className={styles.text}>
                 <a className={styles.icon} href="https://www.facebook.com/oleksandr.klimuk1">
                 <div className={styles.layer}>

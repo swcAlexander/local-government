@@ -44,9 +44,8 @@ const Compare: React.FC = () => {
   };
 
   return (
-    <main className="container">
-      <h1 className="hidden">Compare XLSX</h1>
       <form onSubmit={compareForm} className={styles.compareForm}>
+        <h2 className="hidden">Compare XLSX</h2>
         <label htmlFor="file1">Перший файл</label>
         <div className={styles.tooltip}>
           <input
@@ -93,7 +92,7 @@ const Compare: React.FC = () => {
         </div>
 
         <label htmlFor="file2" className={styles.custom_upload}>
-          File 2:
+          Другий файл:
         </label>
         <div className={styles.tooltip}>
           <input
@@ -107,7 +106,7 @@ const Compare: React.FC = () => {
           </span>
         </div>
 
-        <label htmlFor="sheet2">Sheet of second file:</label>
+        <label htmlFor="sheet2">Сторінка:</label>
         <div className={styles.tooltip}>
           <input type="number" ref={sheet2Ref} className={styles.file_input} />
           <span className={styles.tooltiptext}>
@@ -116,7 +115,7 @@ const Compare: React.FC = () => {
           </span>
         </div>
 
-        <label htmlFor="column2">Column of second file's sheet:</label>
+        <label htmlFor="column2">Колонка:</label>
         <div className={styles.tooltip}>
           <input type="number" ref={column2Ref} className={styles.file_input} />
           <span className={styles.tooltiptext}>
@@ -128,7 +127,6 @@ const Compare: React.FC = () => {
 
         <button type="submit">Compare Files</button>
       </form>
-    </main>
   );
 };
 

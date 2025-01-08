@@ -1,8 +1,13 @@
 .main {
-  background-image: url('/depositphotos.jpg');
+  margin-top: -150px;
+  margin-bottom: -150px;
+  padding-top: 150px;
+  padding-bottom: 150px;
+
+  background-image: url('/depositphotos.png');
   background-size: cover;
   background-position: center;
-  height: 67vh;
+  height: 100vh;
 }
 .hint {
   position: absolute;

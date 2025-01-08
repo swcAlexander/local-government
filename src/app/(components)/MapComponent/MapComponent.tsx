@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import styles from './page.module.scss'
 
 const MapComponent = () => {
   const mapRef = useRef<any>(null);
@@ -22,15 +23,38 @@ const MapComponent = () => {
         zoom: 13,
       });
 
+  // Основні шари (різні стилі тла)
+  const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 30,
+    detectRetina: true,
+    attribution: '© OpenStreetMap'
+  }).addTo(mapRef.current);
+
+  const topoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 30,
+    detectRetina: true,
+    attribution: '© OpenTopoMap'
+  });
+
+  const satelliteMap = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 30,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '© Google'
+  });
+
+  // Додавання меню для вибору шару
+  const baseMaps = {
+    "OpenStreetMap": openStreetMap,
+    "Топографічна карта": topoMap,
+    "Супутникова карта": satelliteMap
+  };
+
+  L.control.layers(baseMaps).addTo(mapRef.current);
+
       L.Icon.Default.mergeOptions({
         iconUrl: '/marker-icon.png',
         shadowUrl: '/marker-shadow.png',
       });
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 30,
-        detectRetina: true,
-      }).addTo(mapRef.current);
 
       L.marker([51.1601, 25.789])
         .addTo(mapRef.current)
@@ -136,7 +160,7 @@ const MapComponent = () => {
   return (
     <section className="container column">
       <h1 className="hidden">OpenStreetMap</h1>
-      <div id="map" style={{ height: '500px', zIndex: 1 }}></div>
+      <div id="map" className={styles.map} style={{zIndex: 1 }}></div>
       <button
         id="toggle-measure"
         className="hidden"

@@ -7,7 +7,6 @@ import Instagram from '../SocialLinks/Instagram';
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
         <div className={styles.footer__content}>
           <a href="/">
             <span className={styles.footer__logo}>LOCAL GOVERNMENT</span>
@@ -51,7 +50,6 @@ const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
     </footer>
   );
 };

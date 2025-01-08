@@ -37,7 +37,6 @@ export default function MainPage() {
   return (
 
       <main className={styles.main}>
-      {/* <div className={styles.main_container}> */}
         <div className={styles.titlebox}>
           <h1 className={styles.animated_text} ref={textElement}>
             Вітаємо вас на сайті для старост!
@@ -67,7 +66,6 @@ export default function MainPage() {
             electronic system.
           </p>
         </section> */}
-      {/* </div> */}
       </main>
   );
 }
